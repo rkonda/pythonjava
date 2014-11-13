@@ -43,7 +43,7 @@ public class AlphabetDiscoveryTest {
     Reporter.log(alphabet, true);
     System.out.flush();
 
-    Map<Character, Integer> characterPositionMap = new HashMap<Character, Integer>();
+    Map<Character, Integer> characterPositionMap = new HashMap<>();
     for(int characterIndex = 0; characterIndex < alphabet.length(); characterIndex++) {
       characterPositionMap.put(alphabet.charAt(characterIndex), characterIndex);
     }
@@ -61,7 +61,7 @@ public class AlphabetDiscoveryTest {
     Reporter.log(alphabet, true);
     System.out.flush();
 
-    Map<Character, Integer> characterPositionMap = new HashMap<Character, Integer>();
+    Map<Character, Integer> characterPositionMap = new HashMap<>();
     for(int characterIndex = 0; characterIndex < alphabet.length(); characterIndex++) {
       characterPositionMap.put(alphabet.charAt(characterIndex), characterIndex);
     }
@@ -79,7 +79,7 @@ public class AlphabetDiscoveryTest {
     Reporter.log(alphabet, true);
     System.out.flush();
 
-    Map<Character, Integer> characterPositionMap = new HashMap<Character, Integer>();
+    Map<Character, Integer> characterPositionMap = new HashMap<>();
     for(int characterIndex = 0; characterIndex < alphabet.length(); characterIndex++) {
       characterPositionMap.put(alphabet.charAt(characterIndex), characterIndex);
     }
@@ -98,7 +98,7 @@ public class AlphabetDiscoveryTest {
     Reporter.log(alphabet, true);
     System.out.flush();
 
-    Map<Character, Integer> characterPositionMap = new HashMap<Character, Integer>();
+    Map<Character, Integer> characterPositionMap = new HashMap<>();
     for(int characterIndex = 0; characterIndex < alphabet.length(); characterIndex++) {
       characterPositionMap.put(alphabet.charAt(characterIndex), characterIndex);
     }
@@ -110,7 +110,7 @@ public class AlphabetDiscoveryTest {
 
   public void testPartialOrder3() {
     AlphabetDiscovery alphabetDiscovery = new AlphabetDiscovery(
-        Lists.newArrayList("ab", "ac", "ad", "beb", "bfb", "cgc", "chc", "dgd")
+        Lists.newArrayList("ab", "ac", "ad", "beb", "bfb", "bbb", "cgc", "chc", "ccc", "dgd", "ddd")
     );
 
     String alphabet = alphabetDiscovery.getAlphabet();
@@ -118,7 +118,7 @@ public class AlphabetDiscoveryTest {
     Reporter.log(alphabet, true);
     System.out.flush();
 
-    Map<Character, Integer> characterPositionMap = new HashMap<Character, Integer>();
+    Map<Character, Integer> characterPositionMap = new HashMap<>();
     for(int characterIndex = 0; characterIndex < alphabet.length(); characterIndex++) {
       characterPositionMap.put(alphabet.charAt(characterIndex), characterIndex);
     }

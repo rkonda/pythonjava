@@ -13,7 +13,7 @@ class AlphabetGraphNode {
 
   public AlphabetGraphNode(Character character) {
     this.character = character;
-    this.antecedents = new HashSet<Character>();
+    this.antecedents = new HashSet<>();
   }
 
   @Override
@@ -30,7 +30,7 @@ public class AlphabetDiscovery {
 
   public AlphabetDiscovery(List<String> words) {
     this.words = words;
-    this.characterGraphNodeMap = new HashMap<Character, AlphabetGraphNode>();
+    this.characterGraphNodeMap = new HashMap<>();
   }
 
   public String getAlphabet() {
@@ -119,7 +119,7 @@ public class AlphabetDiscovery {
     final Map<Character, Integer> inEdgeCountMap;
 
     public CharacterComparator() {
-      this.inEdgeCountMap = new HashMap<Character, Integer>();
+      this.inEdgeCountMap = new HashMap<>();
       for(Character character : characterGraphNodeMap.keySet()) {
         if(!this.inEdgeCountMap.containsKey(character)) {
           this.inEdgeCountMap.put(character, 0);
@@ -157,7 +157,7 @@ public class AlphabetDiscovery {
 
     StringBuilder alphabet = new StringBuilder();
 
-    PriorityQueue<Character> characterPriorityQueue = new PriorityQueue<Character>(characterComparator);
+    PriorityQueue<Character> characterPriorityQueue = new PriorityQueue<>(characterComparator);
     characterPriorityQueue.addAll(characterGraphNodeMap.keySet());
     while(!characterPriorityQueue.isEmpty()) {
       Character character = characterPriorityQueue.remove();
@@ -166,7 +166,7 @@ public class AlphabetDiscovery {
       alphabet.append(character);
     }
 
-    Set<Character> unorderedCharacters = new HashSet<Character>();
+    Set<Character> unorderedCharacters = new HashSet<>();
 
     for(String word : words) {
       for(int characterIndex = 0; characterIndex < word.length(); characterIndex++) {
