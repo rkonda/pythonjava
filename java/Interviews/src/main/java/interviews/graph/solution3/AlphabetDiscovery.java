@@ -33,18 +33,15 @@ public class AlphabetDiscovery {
 
   public String getAlphabet() {
     if(this.alphabet != null) {
-      return this.alphabet;
-    }
+      return this.alphabet;}
 
     if(this.words.size() == 0) {
       this.alphabet = "";
-      return this.alphabet;
-    }
+      return this.alphabet;}
 
     if(this.words.size() == 1) {
       this.alphabet = this.words.get(0);
-      return this.alphabet;
-    }
+      return this.alphabet;}
 
     processWords(0, this.words.size(), 0);
 
@@ -73,9 +70,9 @@ public class AlphabetDiscovery {
         if(!flagRangeDiscovered) {
           // start range
           flagRangeDiscovered = true;
-          rangeStartIndex = wordIndex - 1;}
+          rangeStartIndex = wordIndex - 1;}}
 
-      } else {
+      else {
 
         // complete the range; process it
         if(flagRangeDiscovered) {
@@ -84,14 +81,12 @@ public class AlphabetDiscovery {
 
           // close range
           flagRangeDiscovered = false;
-          rangeStartIndex = -1;
-        }
+          rangeStartIndex = -1;}
 
         // create the newly found character, and graph node
         currentCharacter = this.words.get(wordIndex).charAt(characterSkipCount);
         if(!this.characterGraphNodeMap.containsKey(currentCharacter)) {
-          this.characterGraphNodeMap.put(currentCharacter, new AlphabetGraphNode(currentCharacter));
-        }
+          this.characterGraphNodeMap.put(currentCharacter, new AlphabetGraphNode(currentCharacter));}
 
         // create the graph connection
         this.characterGraphNodeMap.get(previousCharacter).antecedents.add(currentCharacter);
