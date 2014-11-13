@@ -191,6 +191,8 @@ public class AlphabetDiscovery {
       Character character = characterPriorityQueue.remove();
       assert characterComparator.inEdgeCountMap.get(character) == 0;
       characterComparator.removeCharacter(character);
+      characterPriorityQueue.removeAll(characterGraphNodeMap.get(character).antecedents);
+      characterPriorityQueue.addAll(characterGraphNodeMap.get(character).antecedents);
       alphabet.add(character);
     }
 

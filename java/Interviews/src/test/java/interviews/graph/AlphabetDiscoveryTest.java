@@ -1,7 +1,7 @@
 package interviews.graph;
 
 import com.google.common.collect.Lists;
-import interviews.graph.solution2.AlphabetDiscovery;
+import interviews.graph.solution1.AlphabetDiscovery;
 import org.junit.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeMethod;
@@ -25,7 +25,7 @@ public class AlphabetDiscoveryTest {
         Lists.newArrayList("cat")
     );
 
-    String alphabet = alphabetDiscovery.getAlphabet();
+    String alphabet = alphabetDiscovery.getAlphabetAsString();
 
     Reporter.log(alphabet, true);
     System.out.flush();
@@ -38,7 +38,7 @@ public class AlphabetDiscoveryTest {
         Lists.newArrayList("cat", "bat")
     );
 
-    String alphabet = alphabetDiscovery.getAlphabet();
+    String alphabet = alphabetDiscovery.getAlphabetAsString();
 
     Reporter.log(alphabet, true);
     System.out.flush();
@@ -56,7 +56,7 @@ public class AlphabetDiscoveryTest {
         Lists.newArrayList("cat", "cbt")
     );
 
-    String alphabet = alphabetDiscovery.getAlphabet();
+    String alphabet = alphabetDiscovery.getAlphabetAsString();
 
     Reporter.log(alphabet, true);
     System.out.flush();
@@ -74,7 +74,7 @@ public class AlphabetDiscoveryTest {
         Lists.newArrayList("cat", "cbt", "b")
     );
 
-    String alphabet = alphabetDiscovery.getAlphabet();
+    String alphabet = alphabetDiscovery.getAlphabetAsString();
 
     Reporter.log(alphabet, true);
     System.out.flush();
@@ -93,7 +93,7 @@ public class AlphabetDiscoveryTest {
         Lists.newArrayList("ab", "ad", "b", "c", "d")
     );
 
-    String alphabet = alphabetDiscovery.getAlphabet();
+    String alphabet = alphabetDiscovery.getAlphabetAsString();
 
     Reporter.log(alphabet, true);
     System.out.flush();
@@ -113,7 +113,7 @@ public class AlphabetDiscoveryTest {
         Lists.newArrayList("ab", "ac", "ad", "beb", "bfb", "bbb", "cgc", "chc", "ccc", "dgd", "ddd")
     );
 
-    String alphabet = alphabetDiscovery.getAlphabet();
+    String alphabet = alphabetDiscovery.getAlphabetAsString();
 
     Reporter.log(alphabet, true);
     System.out.flush();
@@ -131,6 +131,27 @@ public class AlphabetDiscoveryTest {
     Assert.assertTrue(characterPositionMap.get('g') < characterPositionMap.get('c'));
     Assert.assertTrue(characterPositionMap.get('h') < characterPositionMap.get('c'));
     Assert.assertTrue(characterPositionMap.get('g') < characterPositionMap.get('d'));
+  }
+
+  public void testPartialOrder4() {
+    AlphabetDiscovery alphabetDiscovery = new AlphabetDiscovery(
+        Lists.newArrayList("ab", "ad", "b", "c", "d", "e")
+    );
+
+    String alphabet = alphabetDiscovery.getAlphabetAsString();
+
+    Reporter.log(alphabet, true);
+    System.out.flush();
+
+    Map<Character, Integer> characterPositionMap = new HashMap<>();
+    for(int characterIndex = 0; characterIndex < alphabet.length(); characterIndex++) {
+      characterPositionMap.put(alphabet.charAt(characterIndex), characterIndex);
+    }
+
+    Assert.assertTrue(characterPositionMap.get('a') < characterPositionMap.get('b'));
+    Assert.assertTrue(characterPositionMap.get('b') < characterPositionMap.get('c'));
+    Assert.assertTrue(characterPositionMap.get('c') < characterPositionMap.get('d'));
+    Assert.assertTrue(characterPositionMap.get('d') < characterPositionMap.get('e'));
   }
 
 }
