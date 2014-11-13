@@ -143,6 +143,10 @@ class AlphabetDiscovery(object):
             character_queue_entry = queue.get()
             assert queue.in_edge_count_dict[character_queue_entry.character] == 0
             queue.remove(character_queue_entry.character)
+            for antecedentCharacter in character_graph_node_dict[character_queue_entry.character].antecedents:
+                queue.get(antecedentCharacter)
+            for antecedentCharacter in character_graph_node_dict[character_queue_entry.character].antecedents:
+                queue.put(CustomPriorityQueue.PriorityQueueEntry(queue, antecedentCharacter))
             alphabet.append(character_queue_entry.character)
 
         unorderedCharacters = set()
