@@ -1,0 +1,6 @@
+*.class
+.idea
+.gradle
+*.iml
+__pycache__
+
