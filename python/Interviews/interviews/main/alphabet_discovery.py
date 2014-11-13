@@ -32,7 +32,7 @@ class CustomPriorityQueue(PriorityQueue):
                 self.in_edge_count_dict[antecedentCharacter] += 1
 
 
-    def remove(self, character):
+    def removeFromEdgeCount(self, character):
         del self.in_edge_count_dict[character]
         for antecedentCharacter in self.character_graph_node_dict[character].antecedents:
             assert antecedentCharacter in self.in_edge_count_dict
@@ -142,11 +142,12 @@ class AlphabetDiscovery(object):
         while(not queue.empty()):
             character_queue_entry = queue.get()
             assert queue.in_edge_count_dict[character_queue_entry.character] == 0
-            queue.remove(character_queue_entry.character)
-            for antecedentCharacter in character_graph_node_dict[character_queue_entry.character].antecedents:
-                queue.get(antecedentCharacter)
-            for antecedentCharacter in character_graph_node_dict[character_queue_entry.character].antecedents:
-                queue.put(CustomPriorityQueue.PriorityQueueEntry(queue, antecedentCharacter))
+            queue.removeFromEdgeCount(character_queue_entry.character)
+            items = []
+            while(not queue.empty()):
+                items.append(queue.get())
+            for item in items:
+                queue.put(item)
             alphabet.append(character_queue_entry.character)
 
         unorderedCharacters = set()
