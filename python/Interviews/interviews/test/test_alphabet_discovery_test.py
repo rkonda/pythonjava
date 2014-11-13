@@ -56,7 +56,7 @@ def test_partial_order2():
 
 
 def test_partial_order3():
-    alphabet = alphabet_discovery.AlphabetDiscovery(["ab", "ac", "ad", "beb", "bfb", "cgc", "chc", "dgd"]).get_alphabet()
+    alphabet = alphabet_discovery.AlphabetDiscovery(["ab", "ac", "ad", "beb", "bfb", "bbb", "cgc", "chc", "ccc", "dgd", "ddd"]).get_alphabet()
     print(alphabet)
 
     character_position_dict = {}
